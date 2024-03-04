@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+{% load i18n %}
 <head>
     <meta charset="UTF-8">
     <title>АйТи-Профессии</title>
@@ -8,6 +9,24 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
+
+
+
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go">
+</form>
+
 <div class="g-image"
      style="background: linear-gradient(90deg, rgba(195,217,233,1) 0%, rgba(255,255,255,1) 80%, rgba(170,252,252,1) 100%); background-size: 100%;">
     <header>
@@ -41,6 +60,9 @@
                                 </li>
                                 <li><a class="dropdown-item" href="/auto">Авторизация</a></li>
                             </ul>
+                        </li>
+                        <li class="LANGUAGE">
+                            <a class="nav-link" href="/about">О нашей команде</a>
                         </li>
                     </ul>
                 </div>
