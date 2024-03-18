@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="ru">
+{% load i18n %}
 <head>
     <meta charset="UTF-8">
     <title>АйТи-Профессии | О нашей команде</title>
@@ -8,8 +10,24 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
+
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go">
+</form>
+
 <div class="g-image"
-     style="background: linear-gradient(90deg, rgba(68,68,82,1) 0%, rgba(215,215,228,1) 64%, rgba(77,95,98,1) 100%); background-size: 100%;">
+     style="background: linear-gradient(90deg, rgba(195,217,233,1) 0%, rgba(255,255,255,1) 80%, rgba(170,252,252,1) 100%); background-size: 100%;">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -39,9 +57,15 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="/auto">Авторизация</a></li>
+                                
                             </ul>
                         </li>
+                        
+                        </li>
+                        <li class = "last">
+                            <a class="nav-link" href="/register">Регистрация</a></li>
+                        <li class = "last">
+                            <a class="nav-link" href="/login">Вход</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +77,7 @@
                 <div class="row align-items-start">
                     <div class="col">
                         <div class="bg-image card shadow-1-strong"
-                             style="background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(106,68,76,1) 100%);">
+                             style="background: linear-gradient(90deg, rgba(108,194,255,1) 0%, rgba(195,254,153,1) 80%, rgba(139,235,255,1) 100%);">
                             <div class="card-body text-white">
                                 <h2>Наша команда: "Блондинки под винишко"</h2>
                                 <h3>Мы студентки факультета ИТиАБД Финансового Университета</h3>
