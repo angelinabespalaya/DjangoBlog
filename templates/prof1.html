@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+<head>
+    <title>Diabetes Prediction</title>
+</head>
+{% block content %}
+    <h1>Модель ML: "Предсказание диaбета"</h1>
+    <h3>Чтобы познакомить вас ближе с возможностями различным АйТи профессий,</h3> 
+    <h3>мы решили вам представить модель машинного обучения, которая предсказывает </h3>
+    <h3>наличие диабета у вас, ссылаясь на ваши медицинские данные.</h3>
+    <h4>Введите свои данные, чтобы опробовать точность модели в действии:</h4>
+    <form action="{% url 'predict_diabetes' %}" method="POST">
+        {% csrf_token %}
+        <label for="Pregnancies">Number of Pregnancies:</label>
+        <input type="text" name="Pregnancies">
+    </form>
+    <form action="{% url 'predict_diabetes' %}" method="POST">
+
+        <label for="Glucose">Glucose:</label>
+        <input type="text" name="Glucose">
+        </form>
+    
+    <form action="{% url 'predict_diabetes' %}" method="POST">
+        <div>
+        <label for="BloodPressure">BloodPressure:</label>
+        </div>
+        <div>
+        <input type="text" name="BloodPressure">
+        </div>
+   
+        
+        
+
+        <!--['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'] 
+         Add more input fields for other features -->
+
+
+        <button type="submit">Predict</button>
+        
+    </form>
+{% endblock %}

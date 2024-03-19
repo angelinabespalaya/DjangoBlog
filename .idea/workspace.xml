@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c95b479-5697-4cbf-b9ed-77e7dfb4f03f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/djangoProject/css/paginate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diabetes.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diabetes_1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d607459a-3ef7-4212-9dc8-e1b0f5dee812.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d607459a-3ef7-4212-9dc8-e1b0f5dee812.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auto.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos/blond.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/prof1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/prof1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -77,8 +78,9 @@
       <recent name="$PROJECT_DIR$/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/djangoProject/css" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/djangoProject/css" />
     </key>
   </component>
   <component name="RunManager" selected="Django Server.djangoProject">
@@ -169,7 +171,8 @@
       <workItem from="1710247105819" duration="25000" />
       <workItem from="1710248743202" duration="244000" />
       <workItem from="1710253337137" duration="3140000" />
-      <workItem from="1710743273722" duration="893000" />
+      <workItem from="1710743273722" duration="8663000" />
+      <workItem from="1710764835594" duration="748000" />
     </task>
     <servers />
   </component>
