@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+<head>
+    <title>Diabetes Prediction</title>
+</head>
+{% block content %}
+    <div style="margin-top: 1%">
+            <div class="container-fluid">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="bg-image card shadow-1-strong"
+                             style="background: linear-gradient(90deg, rgba(108,194,255,1) 0%, rgba(195,254,153,1) 80%, rgba(139,235,255,1) 100%);">
+                            <div class="card-body text-white">
+                                <h1>Модель ML: "Предсказание вида ириса с помощью рекуррентной нейронной сети"</h1>
+                                <h3>Чтобы познакомить вас ближе с возможностями различных АйТи профессий,</h3> 
+                                <h3>мы решили вам представить модель машинного обучения, которая предсказывает </h3>
+                                <h3>разновидность ириса, ссылаясь на ваши данные о цветке.</h3>
+                                <h4>Введите свои данные, чтобы опробовать точность модели в действии:</h4> 
+                                
+                                <form action="{% url 'iris' %}" method="POST">
+                                {% csrf_token %}
+                                    <div><label for="sepal length (cm)">длина чашелистика (см):</label></div>
+                                    <div><input type="text" name="sepal length (cm)"></div>
+                                    
+                                    <div><label for="sepal width (cm)">ширина чашелистика (см):</label></div>
+                                    <div><input type="text" name="sepal width (cm)"></div>
+                                    
+                                    <div><label for="petal length (cm)">длина лепестка (см):</label></div>
+                                    <div><input type="text" name="petal length (cm)"></div>
+                                    
+                                    <div><label for="petal width (cm)">ширина лепестка (см):</label></div>
+                                    <div><input type="text" name="petal width (cm)"></div>
+                                    
+                                    <div><label for = "/n"></label></div>
+                                    
+                                    
+                               
+                                    
+                                    <!--['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'] 
+                                     Add more input fields for other features -->
+                            
+                            
+                                    <button type="submit", class = "btn btn-primary">Predict</button>
+                                    
+                                </form>
+                               
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+{% endblock %}

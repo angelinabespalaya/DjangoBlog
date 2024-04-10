@@ -1,69 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html lang="ru">
-{% load i18n %}
-<head>
-    <meta charset="UTF-8">
-    <title>АйТи-Профессии | О нашей команде</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
-<body>
 
-<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-    <input name="next" type="hidden" value="{{ redirect_to }}">
-    <select name="language">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_language_info_list for LANGUAGES as languages %}
-        {% for language in languages %}
-            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }} ({{ language.code }})
-            </option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Go">
-</form>
-
-<div class="g-image"
-     style="background: linear-gradient(90deg, rgba(195,217,233,1) 0%, rgba(255,255,255,1) 80%, rgba(170,252,252,1) 100%); background-size: 100%;">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">АйТи-Профессии</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Переключатель навигации">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/about">О нашей команде</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                Разделы блога
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/prof1">Прогнозирование модели</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li class = "last">
-                            <a class="nav-link" href="/register">Регистрация</a></li>
-                        <li class = "last">
-                            <a class="nav-link" href="/login">Вход</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
     {% block content %}
         <div style="margin-top: 1%">
             <div class="container-fluid">
@@ -85,11 +22,3 @@
             </div>
         </div>
     {% endblock content %}
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
-
-</div>
-</body>
-</html>
