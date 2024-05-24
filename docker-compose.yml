@@ -2,25 +2,27 @@ version: '3.8'
 
 services:
   db:
-    image: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    container_name: db_django
+    image: mysql:latest
+    ports:
+      - "3306:3306"
     environment:
-      POSTGRES_DB: django
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: Angelina
+      MYSQL_ROOT_PASSWORD: Angelina
+      MYSQL_DATABASE: django
 
   web:
-    build: ~/fa-practicum-1/djangoProject
+    container_name: blog_django
+    image: blog:latest
+    build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - django_blog:/app
     ports:
-      - "8000:8000"
+      - "8001:8000"
     environment:
-      - DATABASE_URL=postgres://root:mypassword@db:5432/django
+      MYSQL_HOST: db
     depends_on:
       - db
 
 volumes:
-  postgres_data:
+  django_blog:

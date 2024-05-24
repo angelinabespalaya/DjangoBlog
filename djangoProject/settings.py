@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 import pymysql
 from django.utils.translation import gettext_lazy as _
@@ -26,10 +26,7 @@ SECRET_KEY = 'django-insecure-qeas0do7#-*=m%ha&h0y0w&)jkfs=t=9#h2^iu_l%_wl9u9gg5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
@@ -88,13 +85,13 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'root',
         'PASSWORD': 'Angelina',
-        'HOST': 'localhost',
+        'HOST': os.environ.get('MYSQL_HOST','127.0.0.1'),
         'PORT': '3306',
         'OPTIONS':{
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
     }
 }
+
 
 
 # Password validation

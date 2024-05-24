@@ -1,7 +1,13 @@
-FROM python:3.8
-WORKDIR /code
-COPY requirements.txt  /code/
-RUN pip install --no-cache-dir -r requirements.txt
-COPY ../ code/
+FROM python:3.11
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
 
 
+
+COPY . .
