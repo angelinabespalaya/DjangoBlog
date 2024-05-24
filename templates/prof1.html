@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+<head>
+    <title>Diabetes Prediction</title>
+</head>
+{% block content %}
+    <div style="margin-top: 1%">
+            <div class="container-fluid">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="bg-image card shadow-1-strong"
+                             style="background: linear-gradient(90deg, rgba(108,194,255,1) 0%, rgba(195,254,153,1) 80%, rgba(139,235,255,1) 100%);">
+                            <div class="card-body text-white">
+                                <h1>Модель ML: "Предсказание стоимости на недвижимость в Калифорнии"</h1>
+                                <h3>Чтобы познакомить вас ближе с возможностями различных АйТи профессий,</h3> 
+                                <h3>мы решили вам представить модель машинного обучения, которая предсказывает </h3>
+                                <h3>стоимость недвижимости в Каливорнии, ссылаясь на ваши запросы.</h3>
+                                <h4>Введите свои данные, чтобы опробовать точность модели в действии:</h4> 
+                                
+                                <form action="{% url 'predict_diabetes' %}" method="POST">
+                                {% csrf_token %}
+                                    
+                                    <div><label for='MedInc'>Средний доход:</label></div>
+                                    <div><input type="text" name='MedInc'></div>
+                                    
+                                    <div><label for='HouseAge'>Средний возраст дома:</label></div>
+                                    <div><input type="text" name='HouseAge'></div>
+                                    
+                                    <div><label for='AveRooms'>Среднее количество комнат:</label></div>
+                                    <div><input type="text" name='AveRooms'></div>
+                                    
+                                    <div><label for='AveBedrms'>Среднее количество спален:</label></div>
+                                    <div><input type="text" name='AveBedrms'></div>
+                                    
+                                    <div><label for='Population'>Население:</label></div>
+                                    <div><input type="text" name='Population'></div>
+                                    
+                                    <div><label for='AveOccup'>Среднее количество членов домохозяйства:</label></div>
+                                    <div><input type="text" name='AveOccup'></div>
+                                    
+                                    <div><label for='Latitude'>Широта:</label></div>
+                                    <div><input type="text" name='Latitude'></div>
+                                    
+                                    <div><label for=Longitude >Долгота:</label></div>
+                                    <div><input type="text" name=Longitude ></div>
+                                    <div><label for = "/n"></label></div>
+                                    
+                                    
+                               
+                                    
+                                    <!--['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age'] 
+                                     Add more input fields for other features -->
+                            
+                            
+                                    <button type="submit", class = "btn btn-primary">Predict</button>
+                                    
+                                </form>
+                               
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+{% endblock %}

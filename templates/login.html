@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="container-fluid">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="bg-image card shadow-1-strong"
+                             style="background: linear-gradient(90deg, rgba(108,194,255,1) 0%, rgba(195,254,153,1) 80%, rgba(139,235,255,1) 100%);">
+                            <div class="card-body text-white">
+                                <h1>{{title}}</h1>
+
+                                <form method="post">
+                                    {% csrf_token %}
+                                
+                                <div class="form-error">{{ form.non_field_errors }}</div>
+                                
+                                {% for f in form %}
+                                <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label><div>{{ f }}</div></p>
+                                <div class="form-error">{{ f.errors }}</div>
+                                {% endfor %}
+                                
+                                    <button type="submit", class = "btn btn-primary">Войти</button>
+                                </form>
+                            <div style="margin-top: 21%">    
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+{% endblock %}

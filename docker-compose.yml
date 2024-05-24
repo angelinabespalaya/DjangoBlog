@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: db_django
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Angelina
+      MYSQL_DATABASE: django
+
+  web:
+    container_name: blog_django
+    image: blog:latest
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - django_blog:/app
+    ports:
+      - "8001:8000"
+    environment:
+      MYSQL_HOST: db
+    depends_on:
+      - db
+
+volumes:
+  django_blog:
